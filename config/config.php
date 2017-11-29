@@ -39,3 +39,4 @@ $config['content_ext'] = '.md';              // File extension of content files 
  * CUSTOM
  */
 // $config['custom_setting'] = 'Hello';         // Can be accessed by {{ config.custom_setting }} in a theme
+$config['pico_edit_default_author'] = 'Primoris Admin';
