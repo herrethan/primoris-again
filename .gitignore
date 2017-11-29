@@ -11,8 +11,8 @@ desktop.ini
 ._*
 
 # Composer
-/composer.lock
-/composer.phar
+# /composer.lock
+# /composer.phar
 /vendor
 
 # Build system
