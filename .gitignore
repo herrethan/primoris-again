@@ -26,12 +26,14 @@ desktop.ini
 # User themes
 # /themes/*
 # !/themes/default
+/themes/*/node_modules
+/themes/*/.sass-cache
 
 # User plugins
-# /plugins/*
-# !/plugins/0?-*
-# !/plugins/1?-*
-# !/plugins/DummyPlugin.php
+/plugins/*
+!/plugins/0?-*
+!/plugins/1?-*
+!/plugins/DummyPlugin.php
 
 # User content
 # /content
