@@ -1,0 +1,16 @@
+
+<p>test</p>
+
+{{ content }}
+
+{% if meta.subhead %}
+    <p>{{ meta.subhead }}</p>
+{% endif %}
+
+{% if meta.cta %}
+  {% if meta.cta_link %}
+    <a href="{{ meta.cta_link }}">{{ meta.cta }}</a>
+  {% else %}
+    <h2>{{ meta.cta }}</h2>
+  {% endif %}
+{% endif %}

@@ -6,6 +6,6 @@ global $backend_password;
  * This should be a sha1 hash of your password.
  * Use a tool like http://www.sha1-online.com to generate.
  */
-$backend_password = '3e7f76c6ceb31cf2e677753c7a67efb34147eec6';
+$backend_password = 'fc2bcefa1207b4acdd5ba179a1d7f93928af0f90';
 
 ?>

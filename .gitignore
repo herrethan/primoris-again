@@ -30,10 +30,10 @@ desktop.ini
 /themes/*/.sass-cache
 
 # User plugins
-/plugins/*
-!/plugins/0?-*
-!/plugins/1?-*
-!/plugins/DummyPlugin.php
+# /plugins/*
+# !/plugins/0?-*
+# !/plugins/1?-*
+# !/plugins/DummyPlugin.php
 
 # User content
 # /content
