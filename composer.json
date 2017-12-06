@@ -28,7 +28,8 @@
         "ext-mbstring": "*",
         "twig/twig": "^1.18",
         "erusev/parsedown-extra": "^0.7",
-        "symfony/yaml" : "^2.3"
+        "symfony/yaml" : "^2.3",
+        "phpmailer/phpmailer": "dev-master"
     },
     "require-dev" : {
         "phpdocumentor/phpdocumentor": "^2.8",
