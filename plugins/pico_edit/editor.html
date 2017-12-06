@@ -235,12 +235,12 @@
     }
 
     $.getJSON("{{ pico_edit_url }}/git", function(data) {
-      if(data.have_repo) {
-        $('.commitbutton').show();
-      }
-      if(data.remotes.length) {
-        $('.pushpullbutton').show();
-      }
+      // if(data.have_repo) {
+      //   $('.commitbutton').show();
+      // }
+      // if(data.remotes.length) {
+      //   $('.pushpullbutton').show();
+      // }
     });
     </script>
   </div>

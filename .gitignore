@@ -34,6 +34,7 @@ desktop.ini
 # !/plugins/0?-*
 # !/plugins/1?-*
 # !/plugins/DummyPlugin.php
+/plugins/pico_edit/config.php
 
 # User content
 # /content

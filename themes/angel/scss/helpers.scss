@@ -1,0 +1,51 @@
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+.display-none {
+  display: none;
+}
+
+.offscreen {
+  position: absolute;
+  left: -100000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.screen-sm-only {
+  @media(min-width: $screen-md-min){
+    display: none !important;
+  }
+}
+
+.screen-md-and-up {
+  display: none !important;
+
+  @media(min-width: $screen-md-min){
+    display: block !important;
+  }
+}
+
+.screen-lg-and-up {
+  display: none !important;
+
+  @media(min-width: $screen-lg-min){
+    display: block !important;
+  }
+}
+

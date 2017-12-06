@@ -1,0 +1,12 @@
+{% extends "index.twig" %}
+
+{% block content %}
+
+  {% for page in pages|sort_by("page.event_date")
+     if page.id starts with "calendar/"
+     and page.id != "calendar/index" %}
+      <p>{{ page.id }} • {{ page.title }} • {{ page.meta.event_date }} • {{ page.meta.event_time }}</p>
+      <p>{{ page.id|content }}</p>
+  {% endfor %}
+
+{% endblock %}

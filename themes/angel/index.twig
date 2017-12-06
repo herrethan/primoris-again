@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-    <meta charset="utf-8" />
-
-    <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
-    {% if meta.description %}
-        <meta name="description" content="{{ meta.description|striptags }}">
-    {% endif %}{% if meta.robots %}
-        <meta name="robots" content="{{ meta.robots }}">
-    {% endif %}
+  <meta charset="utf-8" />
+  <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+  {% if meta.description %}
+    <meta name="description" content="{{ meta.description|striptags }}">
+  {% endif %}{% if meta.robots %}
+    <meta name="robots" content="{{ meta.robots }}">
+  {% endif %}
+  <link rel="stylesheet" href="{{ theme_url }}/css/main.css" type="text/css">
 </head>
 <body>
-    {% block header %}
-    <header id="header">
-        <h1>The index page {{ site_title }}</h1>
-        <nav>
-            <ul>
-                {% for page in pages if page.title %}
-                    <li{% if page.id == current_page.id %} style="font-weight:bold"{% endif %}>
-                        <a href="{{ page.url }}">{{ page.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
-    {% endblock %}
+  {% block header %}
+  <header id="header">
+    <nav>
+      <ul>
+        {% for page in pages if page.title %}
+          <li{% if page.id == current_page.id %} style="font-weight:bold"{% endif %}>
+            <a href="{{ page.url }}">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+  {% endblock %}
 
-    {% block content %}
+  {% block content %}
     <section id="content">
-        {% include "test.twig" %}
-    </section>
-    {% endblock %}
+    {% for p, i in current_page.meta %}
+    <p>{{ p }} {{ i }}</p>
+    {% endfor %}
 
-    {% block footer %}
-    <footer id="footer"></footer>
-    {% endblock %}
+    </section>
+  {% endblock %}
+
+  {% block footer %}
+  <footer id="footer"></footer>
+  {% endblock %}
 </body>
 </html>

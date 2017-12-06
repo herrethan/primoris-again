@@ -219,7 +219,7 @@ final class Pico_Edit extends AbstractPicoPlugin {
 
     $error = '';
     // if( is_null( $content ) ) {
-    $content = "/*\nTitle: $name\nAuthor: " . ( $this->getConfig( 'pico_edit_default_author' ) ? $this->getConfig( 'pico_edit_default_author' ) : '' ) . "\nDate: ". date('j F Y') . "\n*/\n\n";
+    $content = "---\nTitle: $name\nAuthor: " . ( $this->getConfig( 'pico_edit_default_author' ) ? $this->getConfig( 'pico_edit_default_author' ) : '' ) . "\nDate: ". date('j F Y') . "\n---\n\n";
     // }
 
     if( file_exists( $path ) ) $error = 'Error: A post already exists with this title';

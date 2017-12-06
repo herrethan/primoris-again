@@ -10,11 +10,17 @@
   <form id="login-form" method="post" action="">
     {% if login_error %}<p class="error">{{ login_error }}</p>{% endif %}
     <div>
+      <h1>Primoris Admin Login</h1>
+    </div>
+    <div>
       <label for="password">Password:</label>
     </div>
     <div>
       <input type="password" name="password" id="password" autofocus/>
       <input type="submit" value="Login" class="btn"/>
+    </div>
+    <div>
+      <a href="{{ base_url }}" style="text-decoration: underline">Back to homepage</a>
     </div>
   </form>
 </body>
