@@ -19,6 +19,7 @@ desktop.ini
 /_build/phpdoc
 /_build/phpdoc.cache
 /_build/deploy-*.git
+/node_modules
 
 # User config
 # /config/config.php

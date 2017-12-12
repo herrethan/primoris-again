@@ -1,25 +1,16 @@
-$gutter: 1.8rem;
+$gutter: 20px;
 $half-gutter: $gutter/2;
 $quarter-gutter: $gutter/4;
 
 $box-shadow: 0 0 5px rgba(0,0,0,0.3);
 
-$border-radius: 0;
-
-$nav-height-sm: $gutter * 2;
-
 $slideshow-slide-count: 7;
 $slideshow-slide-duration: 6s;
 $slideshow-transition-duration: 1;
 
-$mobile-nav-li-height: $gutter*2.5;
-$mobile-nav-li-count: 3;
+$screen-sm-min: 480px;
+$screen-md-min: 768px;
+$screen-lg-min: 1024px;
+$screen-xl-min: 1400px;
 
-$inner-content-max-width: 71rem;
-
-
-$screen-sm-min: 30rem; // 480px
-$screen-md-min: 47.9375rem; // 768px
-$screen-lg-min: 64.0625rem; // 1024px
-$screen-xl-min: 80rem; // 1280px
-$screen-xxl-min: 104.375rem; // 1670px
+$nav-breakpoint: $screen-md-min;

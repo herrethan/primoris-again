@@ -29,7 +29,9 @@
         "twig/twig": "^1.18",
         "erusev/parsedown-extra": "^0.7",
         "symfony/yaml" : "^2.3",
-        "phpmailer/phpmailer": "dev-master"
+        "mailgun/mailgun-php": "^2.4",
+        "php-http/curl-client": "^1.7",
+        "guzzlehttp/psr7": "^1.4"
     },
     "require-dev" : {
         "phpdocumentor/phpdocumentor": "^2.8",

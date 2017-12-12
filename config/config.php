@@ -34,15 +34,10 @@ $config['content_ext'] = '.md';              // File extension of content files 
  * PLUGINS
  */
 // $config['DummyPlugin.enabled'] = true;      // Force DummyPlugin to be disabled
+$config['FormMailer.enabled'] = true;
 
 /*
  * CUSTOM
  */
 // $config['custom_setting'] = 'Hello';         // Can be accessed by {{ config.custom_setting }} in a theme
 $config['pico_edit_default_author'] = 'Primoris Admin';
-
-$config['contact'] = array(
-  'post' => $_POST,
-  'send_to' => 'herrethan@gmail.com',
-  'captcha' => false,
-);

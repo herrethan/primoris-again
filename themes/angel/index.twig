@@ -12,12 +12,22 @@
 </head>
 <body>
   {% block header %}
-  <header id="header">
+  <header>
+    <div class="background-img"></div>
+    <h1 class="site-title">{{ site_title }}</h1>
+
     <nav>
+      <a href="javascript:;" class="hamburger">
+        <span class="top-bun"></span>
+        <span class="meat"></span>
+        <span class="bottom-bun"></span>
+      </a>
       <ul>
-        {% for page in pages if page.title %}
-          <li{% if page.id == current_page.id %} style="font-weight:bold"{% endif %}>
-            <a href="{{ page.url }}">{{ page.title }}</a>
+        {% for page in pages|sort_by('date') if page.meta.nav_name %}
+          <li{% if page.id == current_page.id %} class="active"{% endif %}>
+            <a href="{% if page.meta.nav_link %}{{ page.meta.nav_link }}{% else %}{{ page.url }}{% endif %}">
+              {{ page.meta.nav_name }}
+            </a>
           </li>
         {% endfor %}
       </ul>
@@ -32,6 +42,13 @@
     {% endfor %} -->
     {{ content }}
 
+    <form method="post">
+      <input type="text" name="name" id="name"/>
+      <input type="email" name="email" id="email"/>
+      <textarea name="message" id="message"></textarea>
+      <button type="submit">submit</button>
+    </form>
+
     </section>
   {% endblock %}
 
@@ -39,4 +56,8 @@
   <footer id="footer"></footer>
   {% endblock %}
 </body>
+
+{% block scripts %}
+<script src="{{ theme_url }}/js/page.js"></script>
+{% endblock %}
 </html>
