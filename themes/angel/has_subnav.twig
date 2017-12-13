@@ -1,0 +1,25 @@
+
+{% extends "index.twig" %}
+
+{% block content %}
+
+  {% set parent = current_page.id|split('/')|first %}
+
+  <section class="content">
+
+    <ul>
+      {% for page in pages if page.id starts with parent %}
+      <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endfor %}
+    </ul>
+
+    ---
+    {{ content }}
+
+    {% for p, i in current_page.meta %}
+    <p>{{ p }} {{ i }}</p>
+    {% endfor %}
+  </section>
+
+{% endblock %}
+

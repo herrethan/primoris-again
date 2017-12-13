@@ -34,7 +34,7 @@ $config['content_ext'] = '.md';              // File extension of content files 
  * PLUGINS
  */
 // $config['DummyPlugin.enabled'] = true;      // Force DummyPlugin to be disabled
-$config['FormMailer.enabled'] = true;
+// $config['FormMailer.enabled'] = true;
 
 /*
  * CUSTOM

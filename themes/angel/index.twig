@@ -36,19 +36,8 @@
   {% endblock %}
 
   {% block content %}
-    <section id="content">
-<!--     {% for p, i in current_page.meta %}
-    <p>{{ p }} {{ i }}</p>
-    {% endfor %} -->
+    <section class="content">
     {{ content }}
-
-    <form method="post">
-      <input type="text" name="name" id="name"/>
-      <input type="email" name="email" id="email"/>
-      <textarea name="message" id="message"></textarea>
-      <button type="submit">submit</button>
-    </form>
-
     </section>
   {% endblock %}
 
