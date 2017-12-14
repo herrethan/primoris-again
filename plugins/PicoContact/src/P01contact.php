@@ -28,7 +28,7 @@ class P01contact
         define('P01C\SERVERPORT', $_SERVER['SERVER_PORT']);
         define('P01C\HTTPS', !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
         define('P01C\PORT', SERVERPORT && SERVERPORT != 80 && SERVERPORT != 443 ? ':'.SERVERPORT : '');
-        define('P01C\PROTOCOL', HTTPS || SERVERPORT == 443 ? 'https' : 'https');
+        define('P01C\PROTOCOL', HTTPS || SERVERPORT == 443 ? 'https' : 'http');
         define('P01C\SERVER', PROTOCOL . '://' . SERVERNAME . PORT);
         define('P01C\PAGEURI', $_SERVER['REQUEST_URI']);
         define('P01C\PAGEURL', SERVER . PAGEURI);
@@ -106,7 +106,7 @@ class P01contact
         $defaultStyle = '';
         static $once;
         if (!$once) {
-            $defaultStyle = '<link rel="stylesheet" href="'.SERVER.RELPATH.'style.css"/>';
+            $defaultStyle = '<link rel="stylesheet" href="'.RELPATH.'style.css"/>';
             $once = true;
         }
         $form = new P01contactForm($this);

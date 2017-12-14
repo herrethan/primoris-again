@@ -21,7 +21,7 @@ class PicoContact extends AbstractPicoPlugin
 
     /**
      * Initialize P01contact and set the default language from Pico settings
-     * 
+     *
      * Triggered after Pico has read its configuration
      *
      * @see    Pico::getConfig()
@@ -35,10 +35,16 @@ class PicoContact extends AbstractPicoPlugin
         if(!empty($config['default_language'])) {
             $this->P01contact->default_lang = $config['default_language'];
         }
+        if(!empty($config['MAILGUN_API_KEY'])){
+            $this->P01contact->MAILGUN_API_KEY = $config['MAILGUN_API_KEY'];
+        }
+        if(!empty($config['MAILGUN_DOMAIN'])){
+            $this->P01contact->MAILGUN_DOMAIN = $config['MAILGUN_DOMAIN'];
+        }
     }
     /**
      * Replace (% contact %) tags and contact_admin tags in pages content
-     * 
+     *
      * Triggered after Pico has prepared the raw file contents for parsing
      *
      * @see    Pico::parseFileContent()
@@ -50,7 +56,7 @@ class PicoContact extends AbstractPicoPlugin
     {
         // replace config panel (% contact_admin_config %)
         $content = preg_replace_callback('`\(%\s*contact_admin_config\s*%\)`', function () {
-            return '<div>' . $this->P01contact->panel(). '</div>'; 
+            return '<div>' . $this->P01contact->panel(). '</div>';
         }, $content, 1);
 
         // replace debug report (% contact_admin_debug %)
@@ -62,9 +68,9 @@ class PicoContact extends AbstractPicoPlugin
         $content = $this->P01contact->parse($content);
     }
     /**
-     * Add  {{ contact() }}  and  {{ contact_admin() }}  twig functions 
+     * Add  {{ contact() }}  and  {{ contact_admin() }}  twig functions
      * For outputing forms and admin panels from themes templates
-     * 
+     *
      * Triggered before Pico renders the page
      *
      * @see    Pico::getTwig()

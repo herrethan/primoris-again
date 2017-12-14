@@ -10,10 +10,13 @@ namespace P01C;
 
 require 'P01contact_Field.php';
 
+// send mail with mailgun
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
+
 class P01contactForm
 {
     private $manager;
-
     private $id;
     private $status;
     private $targets;
@@ -29,9 +32,7 @@ class P01contactForm
     {
         static $id;
         $id++;
-
         $this->manager = $P01contact;
-
         $this->id = $id;
         $this->status = '';
         $this->targets = array();
@@ -159,7 +160,7 @@ class P01contactForm
         }
 
         $posted = $_POST['p01-contact_fields'];
-        
+
         // populate fields values and check errors
         $hasFieldsErrors = false;
         $fields = $this->getFields();
@@ -397,7 +398,16 @@ class P01contactForm
         }
 
         // send mail
-        $success = mail($targets, $encoded_subject, $content, $headers);
+        // $success = mail($targets, $encoded_subject, $content, $headers);
+        $mail_gun = new Mailgun($this->manager->MAILGUN_API_KEY);
+        $domain = $this->manager->MAILGUN_DOMAIN;
+
+        # Make the call to the client.
+        $success = $mail_gun->sendMessage("$domain",
+          array('from'    => 'Mailgun Sandbox <postmaster@sandboxce1e99cdbcc64fe1b9d6c44b06a7b34c.mailgun.org>',
+                'to'      => 'ethan herr <herrethan@gmail.com>',
+                'subject' => 'dood',
+                'text'    => 'Gettin jiggy with it!'));
 
         // log
         $this->manager->log(array(
@@ -412,8 +422,8 @@ class P01contactForm
         }
 
         // mail copy
-        $copy = mail($email, $encoded_subject, $content, $headers);
-        $this->setStatus($copy ? 'sent_copy' : 'sent_copy_error');
+        // $copy = mail($email, $encoded_subject, $content, $headers);
+        // $this->setStatus($copy ? 'sent_copy' : 'sent_copy_error');
     }
 
     /**

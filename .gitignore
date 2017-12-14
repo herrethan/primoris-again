@@ -35,6 +35,7 @@ desktop.ini
 # !/plugins/0?-*
 # !/plugins/1?-*
 # !/plugins/DummyPlugin.php
+/plugins/PicoContact/log.json
 
 # User content
 # /content
