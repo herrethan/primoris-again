@@ -22,6 +22,7 @@ desktop.ini
 /node_modules
 
 # User config
+/config/env.php
 # /config/config.php
 
 # User themes

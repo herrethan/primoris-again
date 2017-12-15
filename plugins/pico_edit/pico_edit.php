@@ -113,6 +113,8 @@ final class Pico_Edit extends AbstractPicoPlugin {
       if (isset($backend_url)) {
         $this->url = $backend_url;
       }
+    } else {
+      $this->password = $config['pico_edit_password'];
     }
     $page_404 = $this->getConfig('content_dir') . '/404.md';
     if( !file_exists( $page_404 ) ) touch( $page_404 );
