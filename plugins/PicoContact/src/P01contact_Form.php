@@ -356,7 +356,8 @@ class P01contactForm
         // fields
         $tpl_data->fields = '';
         foreach ($this->fields as $field) {
-            $tpl_data->fields .= $field->htmlMail();
+            // $tpl_data->fields .= $field->htmlMail();
+            $tpl_data->fields .= $field->saneHtmlMail();
             switch ($field->type) {
                 case 'name':
                     $name = $field->value;
@@ -387,7 +388,7 @@ class P01contactForm
         $headers = $this->mailHeaders($name, $email, $mime_boundary);
 
         $content = $this->mailContent($text, 'plain', $mime_boundary);
-        $content .= $this->mailContent($html, 'html', $mime_boundary);
+        $content = $this->mailContent($html, 'html', $mime_boundary);
         $content .= "--$mime_boundary--\n\n";
 
 
@@ -399,15 +400,14 @@ class P01contactForm
 
         // send mail
         // $success = mail($targets, $encoded_subject, $content, $headers);
-        $mail_gun = new Mailgun($this->manager->MAILGUN_API_KEY);
-        $domain = $this->manager->MAILGUN_DOMAIN;
-
-        # Make the call to the client.
+        $mail_gun = new Mailgun($this->manager->mailgun_api_key);
+        $domain = $this->manager->mailgun_domain;
         $success = $mail_gun->sendMessage("$domain",
-          array('from'    => 'Mailgun Sandbox <postmaster@sandboxce1e99cdbcc64fe1b9d6c44b06a7b34c.mailgun.org>',
-                'to'      => 'ethan herr <herrethan@gmail.com>',
-                'subject' => 'dood',
-                'text'    => 'Gettin jiggy with it!'));
+          array('from'    => $this->encodeHeader($name) . " <$email>",
+                'to'      => $targets,
+                'subject' => 'New Inquiry via primorisacadamy.org',
+                'text'    => $this->mailContent($text, 'plain', $mime_boundary),
+                'html'    => $html));
 
         // log
         $this->manager->log(array(
@@ -455,7 +455,7 @@ class P01contactForm
      * @param string $type the content type (plain, html)
      * @param string $mime_boundary
      * @return string
-     */
+     // */
     private function mailContent($content, $type, $mime_boundary)
     {
         $head = "--$mime_boundary\n";

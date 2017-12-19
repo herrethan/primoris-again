@@ -332,6 +332,69 @@ class P01contactField
         return $html;
     }
 
+    /*
+     * Return an html presentation of the field value that isn't completely horrible.
+     */
+    public function saneHtmlMail()
+    {
+        $gen_type = $this->getGeneralType();
+        $properties = array();
+
+        $html = '<p>';
+
+        // name
+        $html = '<b>';
+        $html .= $this->title ? $this->title : $this->type;
+        $html .= '</b>';
+
+        // properties
+        if (!$this->value) {
+            $html .= $this->form->lang('empty') . ' ';
+        }
+        if ($this->title) {
+            $properties[] = $this->type;
+        }
+        if ($gen_type != $this->type) {
+            $properties[] = $gen_type;
+        }
+        foreach (array('locked', 'required') as $property) {
+            if ($this->$property) {
+                $properties[] = $this->form->lang($property);
+            }
+        }
+        if (count($properties)) {
+            $html .= '(' . strtolower(implode(', ', $properties)) . ')<br>';
+        }
+
+        // value
+        if (!$this->value) {
+            return $html;
+        }
+        switch ($gen_type) {
+            case 'checkbox':
+            case 'radio':
+            case 'select':
+                foreach ($this->value as $i => $v) {
+                    if ($this->isSelected($i)) {
+                        $checkmark = '<span style="font-size:1.4em">&#9745;</span>';
+                    } else {
+                        $checkmark = '<span style="font-size:1.4em">&#9744;</span>';
+                    }
+                    $html .= $checkmark . ' ';
+                    $html .= empty($v) ? 'Default' : $v;
+                }
+                break;
+            default:
+                $address = '~[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]~';
+                $val = nl2br(preg_replace($address, '<a href="\\0">\\0</a>', $this->value));
+                $html .= $val;
+                break;
+        }
+        $html .= '</p>';
+        return $html;
+    }
+
+
     private function isSelected($i)
     {
         return is_int($i) && is_array($this->selected_values) && isset($this->selected_values[$i]);

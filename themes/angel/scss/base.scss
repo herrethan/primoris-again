@@ -18,6 +18,7 @@ body {
   background-color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'proxima-nova';
 }
 
 img {
@@ -30,6 +31,13 @@ img {
 
 a {
   background-color: transparent;
+  color: $vivid-tangerine;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: lighten($vivid-tangerine, 5%);
+  }
 }
 
 table {
@@ -37,15 +45,65 @@ table {
   border-spacing: 0;
 }
 
+button[type=button],
+button[type=submit] {
+  background-color: $mine-shaft;
+  color: white;
+  padding: $half-gutter;
+  border: none;
+  outline: none;
+  border-radius: 1px;
+
+  &:focus,
+  &:hover {
+    background-color: lighten($mine-shaft, 10%);
+  }
+}
+
 td,
 th {
   padding: 0;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+h1 {
+  font-family: 'brandon-regular';
+  font-size: 32px;
+}
+
+h2 {
+  font-family: 'brandon-regular';
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 600px;
+  letter-spacing: 2px;
 }
 
 header {
   position: relative;
   height: 500px;
 }
+
+.content {
+  max-width: $max-content-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+
+  @media($max-content-width){
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 
 .background-img {
   height: 100%;
@@ -68,7 +126,6 @@ header {
   font-family: 'brandon-regular';
   margin-top: 0;
   margin-bottom: 0;
-  color: white;
   position: absolute;
   top: $gutter;
   left: $gutter;
@@ -77,6 +134,17 @@ header {
   font-size: 24px;
   font-weight: normal;
   line-height: 1em;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.cta-button {
+  color: white;
+  background-color: $vivid-tangerine;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 nav {
@@ -85,16 +153,24 @@ nav {
     text-decoration: none;
     position: relative;
     color: inherit;
+
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
   }
 
   ul {
-    display: none;
     color: white;
-    font-family: 'proxima-nova';
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 13px;
     letter-spacing: 2px;
+    font-size: 13px;
+  }
+
+  > ul {
+
+    display: none;
 
     @media(min-width: $nav-breakpoint){
       display: block;
@@ -109,6 +185,7 @@ nav {
     }
 
     > li {
+      position: relative;
       display: inline-block;
       padding-left: $half-gutter;
       opacity: 0.8;
@@ -116,6 +193,39 @@ nav {
       &.active,
       &:hover {
         opacity: 1;
+      }
+      &:hover {
+        .subnav {
+          opacity: 1;
+          transform: translateY(0);
+          li {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .subnav {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    top: $half-gutter;
+    right: 0;
+    left: 0;
+    padding-left: 0;
+    padding-top: $half-gutter;
+    transform: translateY(-$half-gutter);
+    transition: transform 0.2s;
+
+    li {
+      height: 1px;
+      display: block;
+    }
+    a {
+      &:focus,
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
@@ -132,7 +242,7 @@ nav {
         right: 0;
         bottom: 0;
         display: block;
-        background-color: $tundora;
+        background-color: $mine-shaft;
         color: white;
         text-align: center;
         margin: 0;

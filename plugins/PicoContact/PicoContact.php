@@ -35,11 +35,11 @@ class PicoContact extends AbstractPicoPlugin
         if(!empty($config['default_language'])) {
             $this->P01contact->default_lang = $config['default_language'];
         }
-        if(!empty($config['MAILGUN_API_KEY'])){
-            $this->P01contact->MAILGUN_API_KEY = $config['MAILGUN_API_KEY'];
+        if(!empty($config['mailgun_api_key'])){
+            $this->P01contact->mailgun_api_key = $config['mailgun_api_key'];
         }
-        if(!empty($config['MAILGUN_DOMAIN'])){
-            $this->P01contact->MAILGUN_DOMAIN = $config['MAILGUN_DOMAIN'];
+        if(!empty($config['mailgun_domain'])){
+            $this->P01contact->mailgun_domain = $config['mailgun_domain'];
         }
     }
     /**

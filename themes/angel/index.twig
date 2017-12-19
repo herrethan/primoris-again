@@ -2,6 +2,8 @@
 <html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
   {% if meta.description %}
     <meta name="description" content="{{ meta.description|striptags }}">
@@ -14,7 +16,7 @@
   {% block header %}
   <header>
     <div class="background-img"></div>
-    <h1 class="site-title">{{ site_title }}</h1>
+    <h1 class="site-title"><a href="{{ base_url }}">{{ site_title }}</a></h1>
 
     <nav>
       <a href="javascript:;" class="hamburger">
@@ -28,6 +30,15 @@
             <a href="{% if page.meta.nav_link %}{{ page.meta.nav_link }}{% else %}{{ page.url }}{% endif %}">
               {{ page.meta.nav_name }}
             </a>
+
+            {% if page.meta.template == 'has_subnav' %}
+              <ul class="subnav">
+              {% for p in pages if p.id starts with page.id|split('/')|first %}
+              <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+
           </li>
         {% endfor %}
       </ul>
@@ -37,7 +48,7 @@
 
   {% block content %}
     <section class="content">
-    {{ content }}
+      {{ content }}
     </section>
   {% endblock %}
 

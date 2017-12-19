@@ -41,18 +41,18 @@ strings:
   nosubject: (No subject)
   email_title: Mail sent from
   # confirmations
-  sent: Email sent.
+  sent: Thank you! We'll be in touch shortly.
   sent_debug: Email virtually sent (debug mode enabled).
-  sent_copy: Email sent. A copy have been sent to the specified address.
+  sent_copy: Email sent. A copy has been sent to the specified address.
   sent_copy_error: Email sent, but there was an issue when sending you the copy.
-  sent_already: The message have already been sent.
+  sent_already: The message has already been sent.
   # errors
-  error: "Error : no message was sent."
+  error: "Sorry! An error occured when attempting to send your message. Please try again later or try contacting us directly at office@primorisacademy.org."
   error_notarget: This contact form has no recipient.
-  error_honeypot: Blip. Blop. Blup. You felt in the honeypot for robots.
+  error_honeypot: Blip. Blop. Blup. You fell in the honeypot for robots.
   error_pageload: Blip. Blop. Blup. You're as fast as a robot. Please wait a few seconds.
   error_lastpost: You submitted just recently. Please wait a bit.
-  error_postcount: You submitted too much times this hour.
+  error_postcount: Sorry, you have submitted too many times within the past hour.
   # fields errors
   field_required: This field is required
   field_email: Please use a valid email address
@@ -108,7 +108,7 @@ strings:
 
   min_sec_after_load: Minimum time after page load
   min_sec_after_load_sub: Minimum number of seconds between a page load and a form submission. Fellow humans need at least a few seconds to read, fill and submit a form. Robots don't.
-  
+
   min_sec_between_posts: Minimum time between two submissions
   min_sec_between_posts_sub: Minimum number of seconds between two form submissions by a same user.
 
@@ -120,7 +120,7 @@ strings:
   recaptcha_public_key_sub: Google reCaptcha public key.
   recaptcha_secret_key: reCaptcha secret key
   recaptcha_secret_key_sub: Google reCaptcha secret key.
-  
+
   debug: Debug mode
   debug_sub: Disable mail sending, display p01-contact data structure, data sent by POST and the email that would have been sent.
   debug_warn: Don't active that on production website!

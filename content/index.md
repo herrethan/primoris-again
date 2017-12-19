@@ -16,3 +16,13 @@ cta_link: /about
 ---
 
 Index page content!
+
+(% contact:
+    herrethan@gmail.com,
+    name! "Full name",
+    email!,
+    checkbox = Should I be checked,
+    checkbox = this is a good thing,
+    select "Department" = boarding school :| sandy pale | wonky chair | mildew,
+    message! =< Start typing why don't you
+%)

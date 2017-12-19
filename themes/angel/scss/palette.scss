@@ -1,5 +1,21 @@
 $vivid-tangerine: #ff9b7f; // pinkish
+
 $de-york: #74c791; // pale green
+
 $east-bay: #465680; // pale blue
+
+$linen: #faeeea; // light red
+$trinidad: #de3b04; // dark red
+
+
+$alabaster: #fafafa; // off white
+$alto: #dad8d8; // medium grey
 $tundora: #4a3f3f; // dark warm grey
 $mine-shaft: #252222; // darker warm grey
+
+
+// danger/success
+$danger: darken($vivid-tangerine, 20%);
+$danger-background: lighten($vivid-tangerine, 20%);
+$success: darken($de-york, 50%);
+$success-background: lighten($de-york, 20%);

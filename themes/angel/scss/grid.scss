@@ -1,5 +1,6 @@
 .row {
-  max-width: 62.5rem;
+  // max-width: 62.5rem;
+  max-width: none;
   margin-left: auto;
   margin-right: auto; }
   .row::before, .row::after {
@@ -12,8 +13,8 @@
     padding-right: 0; }
   .row .row {
     max-width: none;
-    margin-left: -0.9375rem;
-    margin-right: -0.9375rem; }
+    margin-left: -$gutter;
+    margin-right: -$gutter; }
     .row .row.collapse {
       margin-left: 0;
       margin-right: 0; }
@@ -26,8 +27,8 @@
 .column, .columns {
   width: 100%;
   float: left;
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem; }
+  padding-left: $gutter;
+  padding-right: $gutter; }
   .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
     float: right; }
   .column.end:last-child:last-child, .end.columns:last-child:last-child {
@@ -291,8 +292,8 @@
   margin-right: 0; }
 
 .small-uncollapse > .column, .small-uncollapse > .columns {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem; }
+  padding-left: $gutter;
+  padding-right: $gutter; }
 
 .small-centered {
   float: none;
@@ -502,8 +503,8 @@
     margin-left: 0;
     margin-right: 0; }
   .medium-uncollapse > .column, .medium-uncollapse > .columns {
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem; }
+    padding-left: $gutter;
+    padding-right: $gutter; }
   .medium-centered {
     float: none;
     margin-left: auto;
@@ -711,8 +712,8 @@
     margin-left: 0;
     margin-right: 0; }
   .large-uncollapse > .column, .large-uncollapse > .columns {
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem; }
+    padding-left: $gutter;
+    padding-right: $gutter; }
   .large-centered {
     float: none;
     margin-left: auto;
