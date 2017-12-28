@@ -287,7 +287,7 @@ class P01contactForm
             }
             $html .= '<div><input name="p01-contact_form[id]" type="hidden" value="' . $this->id . '" />';
             $html .= '<input name="p01-contact_form[token]" type="hidden" value="' . $this->getToken() . '" />';
-            $html .= '<input class="submit" type="submit" value="' . $this->lang('send') . '" /></div>';
+            $html .= '<input class="submit" type="submit" value="' . $this->lang('submit') . '" /></div>';
         }
         $html .= '</form>';
 

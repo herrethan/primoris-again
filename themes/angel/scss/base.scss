@@ -33,6 +33,7 @@ a {
   background-color: transparent;
   color: $vivid-tangerine;
   text-decoration: none;
+  font-weight: bold;
 
   &:focus,
   &:hover {
@@ -46,16 +47,26 @@ table {
 }
 
 button[type=button],
-button[type=submit] {
+button[type=submit],
+input[type=submit],
+.submit-button {
   background-color: $mine-shaft;
   color: white;
-  padding: $half-gutter;
   border: none;
   outline: none;
+  cursor: pointer;
   border-radius: 1px;
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2em;
 
   &:focus,
   &:hover {
+    color: white;
     background-color: lighten($mine-shaft, 10%);
   }
 }
@@ -65,13 +76,14 @@ th {
   padding: 0;
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-weight: normal;
 }
 
 h1 {
   font-family: 'brandon-regular';
   font-size: 32px;
+  line-height: 1.25em;
 }
 
 h2 {
@@ -86,17 +98,14 @@ h3 {
   letter-spacing: 2px;
 }
 
-header {
-  position: relative;
-  height: 500px;
-}
-
 .content {
   max-width: $max-content-width;
   margin-left: auto;
   margin-right: auto;
+  padding-top: $gutter;
   padding-left: $gutter;
   padding-right: $gutter;
+  padding-bottom: $gutter*2;
 
   @media($max-content-width){
     padding-left: 0;
@@ -104,21 +113,29 @@ header {
   }
 }
 
+.content-subnav {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 
-.background-img {
-  height: 100%;
-  position: relative;
-  background-image: url('../img/0071.jpg');
-  background-size: cover;
+  > li {
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.3);
+    h3 {
+      margin: 0;
+    }
+
+    a {
+      color: $alto;
+
+      &:focus,
+      &:hover {
+        color: $mine-shaft;
+      }
+    }
+    &.active a {
+      color: $mine-shaft;
+    }
   }
 }
 
@@ -140,14 +157,72 @@ header {
   }
 }
 
-.cta-button {
+.page-head-wrap {
+  position: absolute;
+  text-align: center;
   color: white;
-  background-color: $vivid-tangerine;
-  border-radius: 50%;
-  display: inline-block;
+  top: 200px;
+  left: 0;
+  right: 0;
+
+  h1 {
+    font-family: 'brandon-black';
+    font-size: 68px;
+    margin-top: $gutter*2;
+    margin-bottom: $gutter*2;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1em;
+    letter-spacing: 4px;
+    max-width: 10em;
+    text-align: center;
+  }
 }
 
-nav {
+.page-subhead {
+  font-family: 'brandon-regular-italic';
+  display: block;
+  font-size: 24px;
+}
+
+.cta-button {
+  color: white;
+  font-family: 'proxima-nova';
+  background-color: $vivid-tangerine;
+  border-radius: 300px;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 1.75em;
+  display: inline-block;
+  line-height: 1em;
+
+  &:focus,
+  &:hover {
+    color: white;
+    background-color: lighten($vivid-tangerine, 5%);
+  }
+}
+
+.nav-links {
+  color: white;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 13px;
+
+  > li {
+    opacity: 0.8;
+
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   a {
     text-decoration: none;
@@ -159,17 +234,11 @@ nav {
       color: inherit;
     }
   }
+}
 
-  ul {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 13px;
-  }
+nav {
 
   > ul {
-
     display: none;
 
     @media(min-width: $nav-breakpoint){
@@ -185,15 +254,10 @@ nav {
     }
 
     > li {
-      position: relative;
       display: inline-block;
+      position: relative;
       padding-left: $half-gutter;
-      opacity: 0.8;
 
-      &.active,
-      &:hover {
-        opacity: 1;
-      }
       &:hover {
         .subnav {
           opacity: 1;
@@ -208,7 +272,12 @@ nav {
 
   .subnav {
     opacity: 0;
-    display: block;
+    display: none;
+
+    @media(min-width: $nav-breakpoint){
+      display: block;
+    }
+
     position: absolute;
     top: $half-gutter;
     right: 0;
@@ -235,7 +304,7 @@ nav {
     .nav-opened & {
       z-index: 10;
 
-      ul {
+      > ul {
         position: fixed;
         top: 0;
         left: 0;
@@ -340,4 +409,61 @@ nav {
   }
 }
 
+.footer {
+  background-color: $east-bay;
+  padding-bottom: $gutter*4;
+
+  .nav-links {
+    margin-top: $gutter*4;
+    margin-bottom: $gutter*2;
+    padding-left: $gutter;
+    padding-right: $gutter;
+
+    li {
+      display: inline-block;
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
+
+  .copyright {
+    color: white;
+    opacity: 0.5;
+    padding-left: $gutter*2;
+    padding-right: $gutter*2;
+  }
+}
+
+.social-bar {
+  padding-top: $gutter*2;
+  padding-bottom: $gutter*2;
+  padding-left: $gutter*2;
+  padding-right: $gutter*2;
+  background-color: $de-york;
+
+  a {
+    margin: 0 5px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: rgba(255,255,255,0.8);
+    color: $de-york;
+    width: $gutter*2;
+    height: $gutter*2;
+    position: relative;
+    text-align: center;
+
+    &:focus,
+    &:hover {
+      background-color: rgba(255,255,255,1);
+    }
+
+    svg {
+      position: relative;
+      top: $gutter/2;
+      height: 50%;
+      width: 50%;
+      fill: currentColor;
+    }
+  }
+}
 

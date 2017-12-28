@@ -1,15 +1,14 @@
 .p01-contact {
 
   .field {
-    margin-top: .5em;
-    &.inline {
-      margin-top: 1em;
-    }
+    margin-top: $gutter*1.5;
+    margin-bottom: $gutter;
   }
 
   label {
     display: block;
     font-weight: normal;
+    margin-bottom: $gutter/4;
 
     .description{
       color: $alto;
@@ -17,28 +16,22 @@
     }
   }
 
-  input:not([type=radio]):not([type=checkbox]),
+  input:not([type=radio]):not([type=checkbox]):not([type=submit]),
   textarea,
   select {
     border: 1px solid $alto;
     background-color: $alabaster;
-    margin: 0px;
-    transition: all 0.3s ease-in-out;
+    padding: $gutter/2;
+    margin: 0;
     outline: none;
     width: 100%;
     font-size: 1em;
+    transition: all 0.3s ease-in-out;
 
     &:focus {
       background-color: white;
     }
   }
-
-  // input[type=submit]:hover,
-  // input[type=button]:hover{
-  //   background: $mine-shaft;
-  //   color: white;
-  //   box-shadow: none;
-  // }
 
   .required label:after {
     content: ' *';
@@ -47,16 +40,6 @@
   input[type=radio],
   input[type=checkbox] {
     vertical-align: middle;
-  }
-
-  :not(.inline) .options {
-    // display: flex;
-    // border: 1px solid #ddd;
-    // padding: .5em;
-  }
-
-  :not(.inline) .options .option {
-    // margin: 0 1em;
   }
 
   .options input {
@@ -70,17 +53,14 @@
   .alert {
     padding: $gutter;
     margin-bottom: $gutter;
-    // border: 1px solid transparent;
 
     &.success {
       color: $success;
       background-color: $success-background;
-      // border-color: $success;
     }
     &.failed {
       color: $danger;
       background-color: $danger-background;
-      // border-color: $danger;
     }
   }
 }

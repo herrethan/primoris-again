@@ -1,0 +1,52 @@
+header {
+  position: relative;
+  height: 100px;
+
+  .has-page-head & {
+    height: 500px;
+  }
+
+  .body-index & {
+    height: 700px;
+  }
+}
+
+.background-img {
+  height: 100%;
+  position: relative;
+  background-color: $mine-shaft;
+  background-size: cover;
+  background-position: center center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+  }
+
+  .body-index & {
+    background-image: url('../img/pole-corners.jpg');
+  }
+  .body-about & {
+    background-image: url('../img/legos-carrying-rocks.jpg');
+  }
+  .body-programs & {
+    background-image: url('../img/robotics-soulder.jpg');
+  }
+  .body-admissions-apply & {
+    background-image: url('../img/pick-me.jpg');
+  }
+  .body-admissions-faq & {
+    background-image: url('../img/ground-mural.jpg');
+  }
+  .body-calendar-index & {
+    background-image: url('../img/animal-play.jpg');
+  }
+  .body-contact & {
+    background-image: url('../img/boys-looking.jpg');
+  }
+}

@@ -1,6 +1,5 @@
-
 ---
-Title: Wobbly buns
+Title: Home
 Description: Pico is a stupidly simple, blazing fast, flat file CMS.
 social:
     - title: Visit us on GitHub
@@ -15,14 +14,19 @@ cta: Learn More
 cta_link: /about
 ---
 
-Index page content!
+<h1>By offering limitless opportunities to learn and explore more deeply, we open up the world to our students—for them to see its endless possibilities as well as their own.</h1>
 
-(% contact:
-    herrethan@gmail.com,
-    name! "Full name",
-    email!,
-    checkbox = Should I be checked,
-    checkbox = this is a good thing,
-    select "Department" = boarding school :| sandy pale | wonky chair | mildew,
-    message! =< Start typing why don't you
-%)
+<div class="row">
+  <div class="column medium-6 align-center">
+    <img src="/themes/angel/img/fingers-in-goo.jpg">
+    <h2><a href="/about">About us</a></h2>
+    <p>Hands-on. Collaborative. Full of life.</p>
+    <a href="/about">Learn more &#10142;</a>
+  </div>
+  <div class="column medium-6 align-center">
+    <img src="/themes/angel/img/balsa-wood.jpg">
+    <h2><a href="/admissions/apply">Apply now</a></h2>
+    <p>Ready to discover, build, and create?</p>
+    <a href="/admissions/apply">Start your application &#10142;</a>
+  </div>
+</div>

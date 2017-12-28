@@ -1,25 +1,26 @@
-
 {% extends "index.twig" %}
 
 {% block content %}
 
-  {% set parent = current_page.id|split('/')|first %}
+{% set parent = current_page.id|split('/')|first %}
 
-  <section class="content">
+<main class="content">
 
-    <ul>
-      {% for page in pages if page.id starts with parent %}
-      <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-      {% endfor %}
-    </ul>
-
-    ---
-    {{ content }}
-
-    {% for p, i in current_page.meta %}
-    <p>{{ p }} {{ i }}</p>
-    {% endfor %}
-  </section>
+  <div class="row">
+    <div class="column medium-3">
+      <h1 class="capitalize">{{ parent }}</h1>
+      <ul class="content-subnav">
+        {% for page in pages if page.id starts with parent %}
+        <li{% if page.id == current_page.id %} class="active"{% endif %}>
+          <h3><a href="{{ page.url }}">{{ page.title }}</a><h3>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="column medium-9">
+      {{ content }}
+    </div>
+  </div>
+</main>
 
 {% endblock %}
-

@@ -340,17 +340,15 @@ class P01contactField
         $gen_type = $this->getGeneralType();
         $properties = array();
 
-        $html = '<p>';
-
         // name
         $html = '<b>';
         $html .= $this->title ? $this->title : $this->type;
         $html .= '</b>';
 
         // properties
-        if (!$this->value) {
-            $html .= $this->form->lang('empty') . ' ';
-        }
+        // if (!$this->value) {
+        //     $html .= $this->form->lang('empty') . ' ';
+        // }
         if ($this->title) {
             $properties[] = $this->type;
         }
@@ -363,11 +361,12 @@ class P01contactField
             }
         }
         if (count($properties)) {
-            $html .= '(' . strtolower(implode(', ', $properties)) . ')<br>';
+            $html .= ' <i>(' . strtolower(implode(', ', $properties)) . ')</i><br>';
         }
 
         // value
         if (!$this->value) {
+            $html .= '<br><br>';
             return $html;
         }
         switch ($gen_type) {
@@ -390,7 +389,7 @@ class P01contactField
                 $html .= $val;
                 break;
         }
-        $html .= '</p>';
+        $html .= '<br><br>';
         return $html;
     }
 
