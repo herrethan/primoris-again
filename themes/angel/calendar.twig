@@ -2,11 +2,31 @@
 
 {% block content %}
 
+<main class="content">
+
+  <ul class="events">
+
   {% for page in pages|sort_by("page.event_date")
      if page.id starts with "calendar/"
      and page.id != "calendar/index" %}
-      <p>{{ page.id }} • {{ page.title }} • {{ page.meta.event_date }} • {{ page.meta.event_time }}</p>
-      <p>{{ page.id|content }}</p>
-  {% endfor %}
 
+    {% set is_past = ("now"|date('U') - page.meta.event_date|date('U')) > 0 %}
+
+    <li{% if is_past %} class="is-past"{% endif %}>
+      <a class="date-block" href="{{ page.url }}">
+        <div>
+          <span class="month">{{ page.meta.event_date|date('M') }}</span>
+          <span class="day">{{ page.meta.event_date|date('j') }}</span>
+        </div>
+      </a>
+      <div class="event-text">
+        <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+        <p>{{ page.meta.event_date|date('l, F jS, Y') }}<br>{{ page.meta.event_time }}</p>
+        <p>{{ page.id|content }}</p>
+      </div>
+    </li>
+
+  {% endfor %}
+  </ul>
+</main>
 {% endblock %}

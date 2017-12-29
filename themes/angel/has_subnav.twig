@@ -10,7 +10,7 @@
     <div class="column medium-3">
       <h1 class="capitalize">{{ parent }}</h1>
       <ul class="content-subnav">
-        {% for page in pages if page.id starts with parent %}
+        {% for page in pages if page.id starts with parent and page.meta.template == 'has_subnav' %}
         <li{% if page.id == current_page.id %} class="active"{% endif %}>
           <h3><a href="{{ page.url }}">{{ page.title }}</a><h3>
         </li>

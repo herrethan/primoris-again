@@ -76,6 +76,17 @@ th {
   padding: 0;
 }
 
+hr {
+  border-top: 2px solid darken($alabaster, 5%);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: $gutter*3;
+  margin-bottom: $gutter*3;
+}
+
 h1, h2 {
   font-weight: normal;
 }
@@ -84,6 +95,7 @@ h1 {
   font-family: 'brandon-regular';
   font-size: 32px;
   line-height: 1.25em;
+  letter-spacing: 0.02em;
 }
 
 h2 {
@@ -102,14 +114,19 @@ h3 {
   max-width: $max-content-width;
   margin-left: auto;
   margin-right: auto;
-  padding-top: $gutter;
+  padding-top: $gutter*2;
   padding-left: $gutter;
   padding-right: $gutter;
   padding-bottom: $gutter*2;
 
-  @media($max-content-width){
-    padding-left: 0;
-    padding-right: 0;
+  @media(min-width: $screen-sm-min){
+    padding-left: $gutter*2;
+    padding-right: $gutter*2;
+  }
+
+  .row {
+    margin-left: -$gutter;
+    margin-right: -$gutter;
   }
 }
 
@@ -154,56 +171,6 @@ h3 {
   a {
     color: white;
     text-decoration: none;
-  }
-}
-
-.page-head-wrap {
-  position: absolute;
-  text-align: center;
-  color: white;
-  top: 200px;
-  left: 0;
-  right: 0;
-
-  h1 {
-    font-family: 'brandon-black';
-    font-size: 68px;
-    margin-top: $gutter*2;
-    margin-bottom: $gutter*2;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1em;
-    letter-spacing: 4px;
-    max-width: 10em;
-    text-align: center;
-  }
-}
-
-.page-subhead {
-  font-family: 'brandon-regular-italic';
-  display: block;
-  font-size: 24px;
-}
-
-.cta-button {
-  color: white;
-  font-family: 'proxima-nova';
-  background-color: $vivid-tangerine;
-  border-radius: 300px;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 15px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1em 1.75em;
-  display: inline-block;
-  line-height: 1em;
-
-  &:focus,
-  &:hover {
-    color: white;
-    background-color: lighten($vivid-tangerine, 5%);
   }
 }
 

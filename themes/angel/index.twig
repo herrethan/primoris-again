@@ -53,6 +53,10 @@
 
   {% block content %}
   <main class="content">
+    {% if current_page.id starts with "calendar/" %}
+      <h1>{{ meta.title }}</h1>
+      <p>{{ meta.event_date|date('l, F jS, Y') }}<br>{{ meta.event_time }}</p>
+    {% endif %}
     {{ content }}
   </main>
   {% endblock %}

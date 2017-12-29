@@ -1,0 +1,96 @@
+.events {
+
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  > li {
+    margin-bottom: $gutter*3;
+  }
+}
+
+.date-block {
+
+  display: table;
+  position: relative;
+  height: 70px;
+  width: 70px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  background-color: darken($alabaster, 5%);
+  color: inherit;
+  font-weight: normal;
+
+  &:focus,
+  &:hover {
+    color: inherit;
+
+    span {
+      opacity: 1;
+    }
+  }
+
+  .is-past & {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 35px;
+      width: 1px;
+      height: 70px;
+      background-color: $tundora;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  @media(min-width: $screen-sm-min){
+    float: left;
+  }
+
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+    padding: $gutter/2;
+    color: inherit;
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: 0;
+  }
+
+  span {
+    display: block;
+    line-height: 1em;
+    opacity: 0.5;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .month {
+    font-size: 14px;
+  }
+
+  .day {
+    font-size: 26px;
+  }
+}
+
+.event-text {
+
+  h2 {
+    margin-bottom: 0;
+
+    a {
+      font-weight: normal;
+    }
+  }
+
+  @media(min-width: $screen-sm-min){
+    margin-left: $gutter*5;
+  }
+}
