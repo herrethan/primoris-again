@@ -11,7 +11,7 @@ footer_nav_name: support us
 
 
 (% contact:
-    herrethan@gmail.com,
+    office@primorisacademy.org,
     name! "Full name",
     email! "Email address",
     subject,

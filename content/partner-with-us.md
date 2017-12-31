@@ -10,7 +10,7 @@ footer_nav_name: partner with us
 
 
 (% contact:
-    herrethan@gmail.com,
+    office@primorisacademy.org,
     name! "Full name",
     email! "Email address",
     subject,

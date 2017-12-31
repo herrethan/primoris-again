@@ -13,14 +13,14 @@ head: CONTACT
     Fax: (201) 722-1001
 
 (% contact:
-    herrethan@gmail.com,
+    office@primorisacademy.org,
     name! "Full name",
     email! "Email address",
     tel "Phone",
     subject,
     message!
 %)
-  
+
   </div>
   <div class="column medium-6">
     <h1>Visit Us</h1>

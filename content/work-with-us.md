@@ -10,7 +10,7 @@ footer_nav_name: work with us
 
 
 (% contact:
-    herrethan@gmail.com,
+    office@primorisacademy.org,
     name! "Full name",
     email! "Email address",
     tel! "Phone" =< (###)-###-####,
