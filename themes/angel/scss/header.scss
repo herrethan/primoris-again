@@ -60,6 +60,28 @@ header {
   }
 }
 
+@keyframes float-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes float-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .page-head-wrap {
   position: absolute;
   text-align: center;
@@ -67,6 +89,9 @@ header {
   top: 200px;
   left: 0;
   right: 0;
+  opacity: 0;
+  -webkit-animation: float-in 0.3s 0.3s ease-out forwards;
+  animation: float-in 0.3s 0.3s ease-out forwards;
 
   h1 {
     font-family: 'brandon-black';
