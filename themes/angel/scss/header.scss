@@ -77,9 +77,8 @@ header {
     margin-bottom: $gutter*2;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1em;
     letter-spacing: 2px;
-    max-width: 10em;
+    max-width: 12em;
     text-align: center;
 
     @media(min-width: $screen-sm-min){

@@ -30,7 +30,7 @@
         <span class="bottom-bun"></span>
       </a>
       <ul class="nav-links">
-        {% for page in pages|sort_by('date') if page.meta.nav_name %}
+        {% for page in pages|sort_by('time') if page.meta.nav_name %}
           <li{% if page.id == current_page.id %} class="active"{% endif %}>
             <a href="{% if page.meta.nav_link %}{{ page.meta.nav_link }}{% else %}{{ page.url }}{% endif %}">
               {{ page.meta.nav_name }}
@@ -55,9 +55,12 @@
   <main class="content">
     {% if current_page.id starts with "calendar/" %}
       <h1>{{ meta.title }}</h1>
-      <p>{{ meta.event_date|date('l, F jS, Y') }}<br>{{ meta.event_time }}</p>
+      <p>{{ meta.date|date('l, F jS, Y') }}<br>{{ meta.event_detail }}</p>
+      {{ content }}
+      <a href="/calendar">&larr; Back to calendar</a>
+    {% else %}
+      {{ content }}
     {% endif %}
-    {{ content }}
   </main>
   {% endblock %}
 
@@ -75,7 +78,7 @@
       </a>
     </div>
     <ul class="nav-links">
-      {% for page in pages|sort_by('date') if page.meta.footer_nav_name %}
+      {% for page in pages|sort_by('time') if page.meta.footer_nav_name %}
       <li><a href="{{ page.url }}">{{ page.meta.footer_nav_name }}</a></li>
       {% endfor %}
     </ul>

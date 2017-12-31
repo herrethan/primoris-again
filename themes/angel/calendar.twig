@@ -2,30 +2,40 @@
 
 {% block content %}
 
+{% macro date_block(page, is_past) %}
+
+  {% if page.id starts with "calendar/" and page.id != "calendar/index" %}
+
+  <li{% if is_past %} class="is-past"{% endif %}>
+    <a class="date-block" href="{{ page.url }}">
+      <div>
+        <span class="month">{{ page.date|date('M') }}</span>
+        <span class="day">{{ page.date|date('j') }}</span>
+      </div>
+    </a>
+    <div class="event-text">
+      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+      <p>{{ page.date|date('l, F jS, Y') }}<br>{{ page.meta.event_detail }}</p>
+      <p>{{ page.id|content }}</p>
+    </div>
+  </li>
+
+  {% endif %}
+
+{% endmacro %}
+
 <main class="content">
 
   <ul class="events">
 
-  {% for page in pages|sort_by("page.event_date")
-     if page.id starts with "calendar/"
-     and page.id != "calendar/index" %}
+  {% import _self as s %}
 
-    {% set is_past = ("now"|date('U') - page.meta.event_date|date('U')) > 0 %}
+  {% for page in pages|sort_by("time") if ("now"|date('U') - page.date|date('U')) <= 0 %}
+    {{ s.date_block(page, false) }}
+  {% endfor %}
 
-    <li{% if is_past %} class="is-past"{% endif %}>
-      <a class="date-block" href="{{ page.url }}">
-        <div>
-          <span class="month">{{ page.meta.event_date|date('M') }}</span>
-          <span class="day">{{ page.meta.event_date|date('j') }}</span>
-        </div>
-      </a>
-      <div class="event-text">
-        <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
-        <p>{{ page.meta.event_date|date('l, F jS, Y') }}<br>{{ page.meta.event_time }}</p>
-        <p>{{ page.id|content }}</p>
-      </div>
-    </li>
-
+  {% for page in pages|sort_by("time")|reverse if ("now"|date('U') - page.date|date('U')) > 0 %}
+    {{ s.date_block(page, true) }}
   {% endfor %}
   </ul>
 </main>

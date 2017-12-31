@@ -39,7 +39,7 @@ head: PROGRAMS
   </div>
   <div class="column medium-6">
     <h3>SUMMER PROGRAM</h3>
-    <p>See our Summer 2017 brochure <a href="/themes/angel/img/SummerProgram2017.pdf" target="_blank">here</a>.</p>
+    <p>See our Summer 2017 brochure <a href="%theme_url%/img/SummerProgram2017.pdf" target="_blank">here</a>.</p>
   </div>
 </div>
 
@@ -54,7 +54,7 @@ head: PROGRAMS
     <p>Following the success of the inaugural SBG math conference this past April, a fall science event has been added. Online registration for the event will be available on this page in September. If you would like to be alerted when registration opens, <a href="/contact">let us know</a>!</p>
   </div>
   <div class="column medium-6">
-    <img src="/themes/angel/img/solved-by-girls.jpg">
+    <img src="%theme_url%/img/solved-by-girls.jpg">
   </div>
 </div>
 
