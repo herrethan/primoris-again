@@ -1,0 +1,48 @@
+<header>
+  <div class="background-img"></div>
+  <h1 class="site-title">
+    <a href="{{ base_url }}">
+      <img class="site-logo" src="{{ theme_url }}/img/p-white.png">
+      <img class="site-logo site-logo-hover" src="{{ theme_url }}/img/p.png">
+      {{ site_title }}
+    </a>
+  </h1>
+
+  {% if meta.head %}
+  <div class="page-head-wrap">
+    {% if meta.subhead %}
+    <span class="page-subhead">{{ meta.subhead }}</span>
+    {% endif %}
+    <h1>{{ meta.head }}</h1>
+    {% if meta.cta and meta.cta_link %}
+    <a href="{{ meta.cta_link }}" class="cta-button">{{ meta.cta }}</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <nav>
+    <a href="javascript:;" class="hamburger">
+      <span class="top-bun"></span>
+      <span class="meat"></span>
+      <span class="bottom-bun"></span>
+    </a>
+    <ul class="nav-links">
+      {% for page in pages|sort_by('time') if page.meta.nav_name %}
+        <li{% if page.id == current_page.id %} class="active"{% endif %}>
+          <a href="{% if page.meta.nav_link %}{{ page.meta.nav_link }}{% else %}{{ page.url }}{% endif %}">
+            {{ page.meta.nav_name }}
+          </a>
+
+          {% if page.meta.template == 'has_subnav' %}
+            <ul class="subnav">
+            {% for p in pages if p.id starts with page.id|split('/')|first %}
+            <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

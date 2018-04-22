@@ -7,48 +7,7 @@
 </head>
 <body class="body-{{ current_page.id|replace('/','-') }}{% if meta.head %} has-page-head{% endif %}">
   {% block header %}
-  <header>
-    <div class="background-img"></div>
-    <h1 class="site-title"><a href="{{ base_url }}">{{ site_title }}</a></h1>
-
-    {% if meta.head %}
-    <div class="page-head-wrap">
-      {% if meta.subhead %}
-      <span class="page-subhead">{{ meta.subhead }}</span>
-      {% endif %}
-      <h1>{{ meta.head }}</h1>
-      {% if meta.cta and meta.cta_link %}
-      <a href="{{ meta.cta_link }}" class="cta-button">{{ meta.cta }}</a>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    <nav>
-      <a href="javascript:;" class="hamburger">
-        <span class="top-bun"></span>
-        <span class="meat"></span>
-        <span class="bottom-bun"></span>
-      </a>
-      <ul class="nav-links">
-        {% for page in pages|sort_by('time') if page.meta.nav_name %}
-          <li{% if page.id == current_page.id %} class="active"{% endif %}>
-            <a href="{% if page.meta.nav_link %}{{ page.meta.nav_link }}{% else %}{{ page.url }}{% endif %}">
-              {{ page.meta.nav_name }}
-            </a>
-
-            {% if page.meta.template == 'has_subnav' %}
-              <ul class="subnav">
-              {% for p in pages if p.id starts with page.id|split('/')|first %}
-              <li><a href="{{ p.url }}">{{ p.title }}</a></li>
-              {% endfor %}
-              </ul>
-            {% endif %}
-
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
+  {% include "header.twig" %}
   {% endblock %}
 
   {% block content %}
@@ -65,29 +24,7 @@
   {% endblock %}
 
   {% block footer %}
-  <footer class="footer align-center">
-    <div class="social-bar">
-      <a href="http://www.facebook.com/PrimorisAcademyOrg" title="facebook" target="_blank">
-        {% include "img/facebook.svg" %}
-      </a>
-      <a href="http://instagram.com/primorisacademy" title="instagram" target="_blank">
-        {% include "img/instagram.svg" %}
-      </a>
-      <a href="https://twitter.com/primorisacademy" title="twitter" target="_blank">
-        {% include "img/twitter.svg" %}
-      </a>
-    </div>
-    <ul class="nav-links">
-      {% for page in pages|sort_by('time') if page.meta.footer_nav_name %}
-      <li><a href="{{ page.url }}">{{ page.meta.footer_nav_name }}</a></li>
-      {% endfor %}
-    </ul>
-    <p class="copyright">
-      &copy;
-      <script>document.write(new Date().getFullYear())</script>
-      Primoris Academy Inc. All rights reserved.
-    </p>
-  </footer>
+  {% include "footer.twig" %}
   {% endblock %}
 </body>
 
