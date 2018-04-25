@@ -151,25 +151,39 @@ header {
   margin-top: 0;
   margin-bottom: 0;
   position: absolute;
-  top: $gutter;
-  left: $gutter;
   letter-spacing: 1px;
-  max-width: 160px;
-  font-size: 22px;
+  max-width: 240px;
+  font-size: 18px;
   font-weight: normal;
-  line-height: 0.97em;
+  top: $gutter;
+  left: $gutter/2;
+
+  @media(min-width: $nav-breakpoint){
+    top: 35px;
+    left: 20px;
+  }
+
   a {
     color: white;
     text-decoration: none;
+
+    span {
+      display: none;
+
+      @media(min-width: $nav-breakpoint){
+        display: inline;
+      }
+
+    }
   }
 }
 
 .site-logo {
   float: left;
-  width: 40px;
-  margin-right: 10px;
+  width: $gutter*1.5;
+  margin-right: $gutter/4;
   position: relative;
-  top: -5px;
+  top: -$gutter/2;
 }
 
 .site-logo-hover {
