@@ -53,6 +53,7 @@
   .alert {
     padding: $gutter;
     margin-bottom: $gutter;
+    margin-top: $gutter;
 
     &.success {
       color: $success;
