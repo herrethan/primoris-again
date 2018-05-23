@@ -35,11 +35,11 @@ head: PROGRAMS
 <div class="row">
   <div class="column medium-6">
     <h3>ENRICHMENT PROGRAM: FALL & SPRING</h3>
-    <p>Please check back in late August-early September for Fall 2017 offerings.</p>
+    <p>Please check back in late August-early September for Fall 2018 offerings.</p>
   </div>
   <div class="column medium-6">
     <h3>SUMMER PROGRAM</h3>
-    <p>See our Summer 2017 brochure <a href="%theme_url%/img/SummerProgram2017.pdf" target="_blank">here</a>.</p>
+    <p>See our Summer 2018 brochure <a href="%theme_url%/img/SummerProgram2018.pdf" target="_blank">here</a>.</p>
   </div>
 </div>
 
