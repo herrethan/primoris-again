@@ -399,16 +399,15 @@ class P01contactForm
         }
 
         // send mail
-        $success = mail($targets, $encoded_subject, $content, $headers);
-
-        // $mail_gun = new Mailgun($this->manager->mailgun_api_key);
-        // $domain = $this->manager->mailgun_domain;
-        // $success = $mail_gun->sendMessage("$domain",
-        //   array('from'    => $this->encodeHeader($name) . " <$email>",
-        //         'to'      => $targets,
-        //         'subject' => 'New Inquiry via primorisacadamy.org',
-        //         'text'    => $this->mailContent($text, 'plain', $mime_boundary),
-        //         'html'    => $html));
+        // $success = mail($targets, $encoded_subject, $content, $headers);
+        $mail_gun = new Mailgun($this->manager->mailgun_api_key);
+        $domain = $this->manager->mailgun_domain;
+        $success = $mail_gun->sendMessage("$domain",
+          array('from'    => $this->encodeHeader($name) . " <$email>",
+                'to'      => $targets,
+                'subject' => 'New Inquiry via primorisacadamy.org',
+                'text'    => $this->mailContent($text, 'plain', $mime_boundary),
+                'html'    => $html));
 
         // log
         $this->manager->log(array(
