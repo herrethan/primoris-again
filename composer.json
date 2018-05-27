@@ -23,7 +23,7 @@
         "source": "https://github.com/picocms/Pico"
     },
     "require": {
-        "php": ">=5.3.6",
+        "php": ">=7.2.2",
         "ext-dom": "*",
         "ext-mbstring": "*",
         "twig/twig": "^1.18",
