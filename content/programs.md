@@ -49,9 +49,7 @@ head: PROGRAMS
 <div class="row">
   <div class="column medium-6">
     <h3>SOLVED BY GIRLS CONFERENCE</h3>
-    <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for girls. The conference offers girls in grades 3-8 the opportunity to participate in a team olympiad and STEM challenges, as well as to meet other likeminded girls and inspiring speakers. Solved by Girls aims to spark young girls' interest—and affirm their potential to succeed—in STEM studies and professions.</p>
-
-    <p>Following the success of the inaugural SBG math conference this past April, a fall science event has been added. Online registration for the event will be available on this page in September. If you would like to be alerted when registration opens, <a href="/contact">let us know</a>!</p>
+    <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for girls. The conference offers third to eighth graders the opportunity to participate in a team olympiad of STEM challenges, meet other likeminded girls, and hear from inspiring guest speakers. SBG aims to encourage young girls' interest in STEM studies and professions. If you would like to be alerted when registration opens for the next conference, <a href="/contact">let us know</a>!</p>
   </div>
   <div class="column medium-6">
     <img src="%theme_url%/img/solved-by-girls.jpg">
