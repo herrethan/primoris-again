@@ -4,6 +4,15 @@
   <meta charset="utf-8" />
   <title>Pico Edit</title>
   <link rel="stylesheet" href="{{ base_url }}/plugins/pico_edit/styles.css" type="text/css" />
+  <style type="text/css">
+    /* totally hacked styles */
+    .controls .new, .controls .logout, .savebutton {
+      padding: 3px 6px 2px;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+  </style>
   <meta name="robots" content="noindex, nofollow" />
 </head>
 <body>
@@ -15,12 +24,12 @@
   <div id="saving">Saving...</div>
 
   <div class="controls">
-    <a href="#" class="savebutton btn icon-floppy-disk" title="Save"></a>
-    <a href="#" class="new btn icon-plus marg-r5" title="New"></a>
+    <a href="#" class="savebutton btn" title="Save">Save</a>
+    <a href="#" class="new btn marg-r5" title="New"><span class="icon-plus"></span> New</a>
     <a href="#" class="pushpullbutton btn icon-download2 marg-r5" title="Git Push/Pull"></a>
     <a href="#" class="commitbutton btn icon-upload2 marg-r5" title="Git Commit"></a>
     <a href="#" class="clearcachebutton btn icon-loop2 marg-r5" title="Clear Cache"></a>
-    <a href="{{ pico_edit_url }}/logout" class="logout btn icon-switch" title="Logout"></a>
+    <a href="{{ pico_edit_url }}/logout" class="logout btn" title="Logout">Logout</a>
   </div>
   <div id="sidebar">
     <ul class="nav0">

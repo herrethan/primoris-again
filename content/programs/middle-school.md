@@ -10,6 +10,26 @@ In elementary and middle school, we set the stage for well-rounded development a
 
 Beyond academics, students develop routines, habits, and characteristics that reinforce a positive learning environment, such as personal responsibility, teamwork, and perseverance.
 
-<p style="margin-top:40px">
+<div class="row">
+<div class="column large-6">
+<h3>MONDAYS-THURSDAY: REGULAR SCHEDULE</h3>
+<ul>
+<li>Advanced core subjects: Reading/Language Arts, History, Math, and Science</li>
+<li>Physical Education, Mandarin, and Intro to STEM (lower elementary) or Robotics/Coding (upper elementary-middle)</li>
+<li>Instrumental Music and Art (combined art history & studio work approach), 2x a week each</li>
+</ul>
+</div>
+<div class="column large-6">
+<h3>INNOVATIVE FRIDAYS: ELECTIVE SCHEDULE</h3>
+On Fridays, dubbed “Innovative Fridays,” we offer a wide range of electives for students to discover and cultivate their passions. Innovative Fridays are so called not only because they are innovative in nature, but also because they encourage innovation in students—these electives inspire students to apply their knowledge, explore different perspectives, make connections, and think outside the box.
+</div>
+</div>
+<p class="row" style="margin-top:40px">
+<a href="/programs/elementary-school" style="float:left">← To Pre-School</a>
+<a href="/programs/high-school" style="float:right">To High School →</a>
+</p>
+<p style="margin-top:40px; text-align: center;">
   <a class="submit-button" href="/admissions/apply">Apply now</a>
 </p>
+
+
