@@ -20,10 +20,13 @@ Setup is as you would normally a [Pico CMS](https://github.com/picocms/Pico).
 
 0. For frontend dev `cd themes/angel` and `npm i` and `grunt watch`
 
-0. For form-mailing support (using mailgun) and pico_edit admin access you'll need to set global envs:
+0. For form-mailing support (using mailgun), file uploads, and pico_edit admin access you'll need to set global envs:
 
     `MAILGUN_API_KEY`
     `MAILGUN_DOMAIN`
     `PICO_EDIT_SHA1_PASSWORD`
+    `AWS_BUCKET_NAME`
+    `AWS_ACCESS_KEY_ID`
+    `AWS_SECRET_ACCESS_KEY`
 
 Tis it!

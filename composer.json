@@ -31,7 +31,8 @@
         "symfony/yaml" : "^2.3",
         "mailgun/mailgun-php": "^2.4",
         "php-http/curl-client": "^1.7",
-        "guzzlehttp/psr7": "^1.4"
+        "guzzlehttp/psr7": "^1.4",
+        "aws/aws-sdk-php": "~2.6"
     },
     "require-dev" : {
         "phpdocumentor/phpdocumentor": "^2.8",
