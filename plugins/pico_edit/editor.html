@@ -41,6 +41,11 @@
       {% endif %}
     </ul>
     <ul class="nav">
+
+    {% for object in s3_bucket_objects %}
+      <li><a href="">{{ object['PrettyKey'] }}</a></li>
+    {% endfor %}
+
     {% for page in pages %}
       <li><a href="#" data-url="{{ page.id }}" class="post"><span class="icon-file-text2 marg-r5" aria-hidden="true"></span>/{{ page.id }}</a>
       <a href="{{ page.url }}" target="_blank" class="view" title="View"><span class="icon icon-eye" aria-hidden="true"></span></a>
@@ -51,6 +56,10 @@
 
   <div id="main">
     <div id="epiceditor"></div>
+
+    <div style="position: absolute; bottom: 40px; right: 40px">
+      asdfjkl;?
+    </div>
 
     <script src="{{ base_url }}/plugins/pico_edit/libs/jquery-1.12.3.min.js"></script>
     <!-- <script src="{{ base_url }}/plugins/pico_edit/top_up-1.7.2/top_up-min.js"></script> -->
