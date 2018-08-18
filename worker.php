@@ -18,9 +18,10 @@ $iterator = $s3_client->getIterator('ListObjects', array(
 ));
 
 foreach ($iterator as $object) {
-    $file = substr($object['Key'], strlen($pages_path), -strlen('.md');
+    $file = substr($object['Key'], strlen($pages_path), -strlen('.md'));
     if($file && $file != '404'){
         print($file);
     }
 }
+
 ?>
