@@ -13,7 +13,7 @@ head: CONTACT
     Fax: (201) 722-1001
 
 (% contact:
-    ethan@primorisacademy.org,
+    office@primorisacademy.org,
     name! "Full name",
     email! "Email address",
     tel "Phone",

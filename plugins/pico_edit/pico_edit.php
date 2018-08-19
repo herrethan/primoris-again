@@ -18,7 +18,7 @@ final class Pico_Edit extends AbstractPicoPlugin {
   private $plugin_path = '';
   private $password = '';
   private $url = 'admin';
-  private $pages_folder = 'pages';
+  private $s3_client = '';
 
   public function onPageRendering(Twig_Environment &$twig, array &$twig_vars, &$templateName)
   {
@@ -60,31 +60,21 @@ final class Pico_Edit extends AbstractPicoPlugin {
         }
       }
 
-      // list objects from s3
-      // $iterator = $this->getConfig('s3_client')->getIterator('ListObjects', array(
-      //     'Bucket' => $this->getConfig('s3_bucket'),
-      //     'Prefix' => $this->getConfig('s3_prefix') . $this->pages_folder . '/',
-      // ));
-
-      // $s3_bucket_objects = array();
-      // foreach ($iterator->toArray() as $object) {
-      //   $pretty_key = str_replace($this->s3_prefix . $this->pages_folder, '', $object['Key']);
-      //   $pg = array(
-      //     'Key' => $object['Key'],
-      //     'PrettyKey' => $pretty_key,
-      //   );
-      //   if (strlen($pretty_key) > 1){
-      //     array_push($s3_bucket_objects, $pg);
-      //   }
-      // }
-      // $twig_vars['s3_bucket_objects'] = $s3_bucket_objects;
-
       echo $twig_editor->render('editor.html', $twig_vars); // Render editor.html
       exit; // Don't continue to render template
     }
   }
 
   public function onConfigLoaded( array &$config ) {
+
+    // create S3 client so we can save/delete files
+    $this->s3_client = Aws\S3\S3Client::factory(array(
+      'credentials' => array(
+          'key'    => $config['aws_access_key_id'],
+          'secret' => $config['aws_secret_access_key'],
+      )
+    ));
+
     // Default options
     if( !isset( $config['pico_edit_404'] ) ) $config['pico_edit_404'] = TRUE;
     if( !isset( $config['pico_edit_options'] ) ) $config['pico_edit_options'] = TRUE;
@@ -270,11 +260,6 @@ final class Pico_Edit extends AbstractPicoPlugin {
     {
       $file = $this->get_real_filename( $file_url );
       if( $file && file_exists( $file ) ) die( file_get_contents( $file ) );
-      // $result = $this->s3_client->getObject(array(
-      //     'Bucket' => $this->s3_bucket,
-      //     'Key'    => $file_url
-      // ));
-      // if($result) die( $result['Body'] );
       else die( 'Error: Invalid file' );
     }
     else if( $this->getConfig( 'pico_edit_options' ) )
@@ -296,27 +281,21 @@ final class Pico_Edit extends AbstractPicoPlugin {
       if( !$content ) die( 'Error: Invalid content' );
       $error = '';
       if( strlen( $content ) !== file_put_contents( $file, $content ) ) $error = 'Error: cant save changes';
-      die( json_encode( array(
-        'content' => $content,
-        'file' => $file_url,
-        'error' => $error
-      )));
+      // die( json_encode( array(
+      //   'content' => $content,
+      //   'file' => $file_url,
+      //   'error' => $error
+      // )));
 
       // also upload to s3
-      // try {
-      //   $path = $this->getConfig('s3_bucket');
-      //   $path .= '/' . $this->getConfig('s3_prefix');
-      //   $path .= $this->getConfig('aws_pages_dir');
-      //   $file_url .=  $this->getConfig('content_ext');
-      //   $upload = $this->s3_client->upload($path, $file_url, $content, 'public-read');
-      // } catch (Exception $e){
-      //   $error = $e;
-      // }
-      // die(json_encode( array(
-      //   'upload' => $upload,
-      //   'file' => $path . $file_url,
-      //   'error' => $error,
-      // )));
+      $key = $this->getConfig('aws_prefix') . $this->getConfig('aws_pages_dir');
+      $key .= $file_url . $this->getConfig('content_ext');
+      $upload = $this->s3_client->upload($this->getConfig('aws_bucket'), $key, $content, 'public-read');
+      die(json_encode( array(
+        'upload' => $upload,
+        'file' => $key,
+        'error' => $error,
+      )));
     }
     else if( $this->getConfig( 'pico_edit_options' ) )
     {
@@ -344,7 +323,18 @@ final class Pico_Edit extends AbstractPicoPlugin {
           rmdir( $dir );
         }
       }
-      die( $ret );
+      // also delete from s3
+      $key = $this->getConfig('aws_prefix') . $this->getConfig('aws_pages_dir');
+      $key .= $file_url . $this->getConfig('content_ext');
+      $upload = $this->s3_client->deleteObject(array(
+        'Bucket' => $this->getConfig('aws_bucket'),
+        'Key' => $key,
+      ));
+
+      die( json_encode(array(
+        'ret' => $ret,
+        'deleted' => $key,
+      )));
     }
   }
 
