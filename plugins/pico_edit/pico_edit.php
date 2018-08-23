@@ -153,6 +153,7 @@ final class Pico_Edit extends AbstractPicoPlugin {
     if( $url == $this->url.'/open' ) $this->do_open();
     if( $url == $this->url.'/save' ) $this->do_save();
     if( $url == $this->url.'/delete' ) $this->do_delete();
+    if( $url == $this->url.'/upload' ) $this->do_upload();
     if( $url == $this->url.'/logout' ) $this->is_logout = true;
     if( $url == $this->url.'/commit' ) $this->do_commit();
     if( $url == $this->url.'/git' ) $this->do_git();
@@ -337,6 +338,32 @@ final class Pico_Edit extends AbstractPicoPlugin {
       )));
     }
   }
+
+
+  private function do_upload() {
+    if( !isset( $_SESSION['backend_logged_in'] ) || !$_SESSION['backend_logged_in'] ) die( json_encode( array( 'error' => 'Error: Unathorized' ) ) );
+
+    $file = $_FILES['uploadedfile'];
+
+    if(!$file['tmp_name']){
+      die('Error. You must supply a file to upload');
+    }
+
+    // upload to s3
+    $key = $this->getConfig('aws_prefix') . $this->getConfig('aws_images_dir') . $file['name'];
+    // $upload = $this->s3_client->upload($this->getConfig('aws_bucket'), $key, $content, 'public-read');
+    $upload = $this->s3_client->putObject(array(
+      'Bucket' => $this->getConfig('aws_bucket'),
+      'Key' => $key,
+      'SourceFile' => $file['tmp_name'],
+    ));
+
+    die(json_encode(array(
+      'file' => $file,
+      'url' => $upload['ObjectURL'],
+    )));
+  }
+
 
   private function do_commit()
   {

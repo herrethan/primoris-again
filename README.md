@@ -20,13 +20,18 @@ Setup is as you would normally a [Pico CMS](https://github.com/picocms/Pico).
 
 0. For frontend dev `cd themes/angel` and `npm i` and `grunt watch`
 
-0. For form-mailing support (using mailgun), file uploads, and pico_edit admin access you'll need to set global envs:
+0. For form-mailing support (using mailgun), file uploads (using s3), and pico_edit admin access you'll need to set global envs:
 
     `MAILGUN_API_KEY`
     `MAILGUN_DOMAIN`
     `PICO_EDIT_SHA1_PASSWORD`
-    `AWS_BUCKET_NAME`
     `AWS_ACCESS_KEY_ID`
     `AWS_SECRET_ACCESS_KEY`
+    `AWS_BUCKET_NAME`
+    `AWS_BUCKET_PREFIX`
+    `AWS_PAGES_DIR`
+    `AWS_IMAGES_DIR`
+
+0. You'll need accounts for Mailgun and AWS of course. S3 Storage is really only necessary if this is hosted on an ephemeral file system like Heroku, otherwise all page and image data can be stored on disk.
 
 Tis it!

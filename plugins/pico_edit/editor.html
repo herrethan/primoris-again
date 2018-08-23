@@ -4,15 +4,7 @@
   <meta charset="utf-8" />
   <title>Pico Edit</title>
   <link rel="stylesheet" href="{{ base_url }}/plugins/pico_edit/styles.css" type="text/css" />
-  <style type="text/css">
-    /* totally hacked styles */
-    .controls .new, .controls .logout, .savebutton {
-      padding: 3px 6px 2px;
-      font-family: sans-serif;
-      text-transform: uppercase;
-      font-size: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="{{ base_url }}/plugins/pico_edit/styles-overwrite.css" type="text/css" />
   <meta name="robots" content="noindex, nofollow" />
 </head>
 <body>
@@ -21,11 +13,76 @@
     <div class="closegadget"><span class="icon-cross" aria-hidden="true"></span></div>
     <div class="popupcontent">Loading...</div>
   </div>
-  <div id="saving">Saving...</div>
+  <div id="helper">
+    <button id="helper-toggle">
+      <span class="question">?</span>
+      <span class="close">&times;</span>
+    </button>
+    <div id="upload-image">
+      <h2>Insert an image</h2>
+      <form enctype="multipart/form-data" method="post">
+        <input type="file" name="uploadedfile" id="uploadedfile" value="Select image">
+        <button id="uploadimage" class="btn" type="button">Upload file</button>
+      </form>
+      <p class="error invalid-image-type">You must select a .jpg, .jpeg, .gif, or .png file.</p>
+      <p class="error upload-error">Sorry! Something went wrong with the upload. Please contact someone in-the-know.</p>
+      <p class="upload-success">Success! Copy this link and paste it in the editor where you'd like it:</p>
+
+      <h2>Page meta</h2>
+      <p style="font-family: monospace; line-height: 1.25em;">
+        ---<br>
+        Everything between 3 dashed lines at the top of the page is considered meta info<br>
+        ---
+      </p>
+      <p>There are a number of meta tags that are available for page customization to control top level features like title, date, and author. These are: </p>
+      <ul class="meta-fields">
+        <li>
+          <pre>author</pre>:
+          Author of the page. Not really used for anything right now.
+        </li>
+        <li>
+          <pre>cta</pre>:
+          Optional cta text to display in page header.
+        </li>
+        <li>
+          <pre>cta_link</pre>:
+          Path for cta link, used in conjunction with <span style="font-family: monospace;">cta</span>.
+        </li>
+        <li>
+          <pre>date</pre>:
+          Page creation date. In the case of /calendar pages, this is used as the event start date, which all calendar pages are ordered by. Use <span style="font-family: monospace;">event_detail</span> to denote specific event duration and other info.
+        </li>
+        <li>
+          <pre>footer_nav_name</pre>:
+          Use to display this page link in footer.
+        </li>
+        <li>
+          <pre>head</pre>:
+          Optional display name used in page header.
+        </li>
+        <li>
+          <pre>nav_name</pre>:
+          Field used to display this page link in the main site navigation.
+        </li>
+        <li>
+          <pre>subhead</pre>:
+          Optional subhead to display in page header.
+        </li>
+        <li>
+          <pre>title</pre>:
+          Title of the page.
+        </li>
+      </ul>
+      <i>Note: meta tags are case insensitive.</i>
+      <h2>Markdown</h2>
+      <p>All page content can either be written in plain HTML or basic <a href="https://www.markdownguide.org/cheat-sheet/" target="_blank">Markdown</a>, an HTML shorthand syntax.</p>
+    </div>
+  </div>
+  <div id="saving" class="btn">Saving...</div>
 
   <div class="controls">
     <a href="#" class="savebutton btn" title="Save">Save</a>
-    <a href="#" class="new btn marg-r5" title="New"><span class="icon-plus"></span> New</a>
+    <a href="#" class="new btn marg-r5" title="New"><span>+</span> New</a>
     <a href="#" class="pushpullbutton btn icon-download2 marg-r5" title="Git Push/Pull"></a>
     <a href="#" class="commitbutton btn icon-upload2 marg-r5" title="Git Commit"></a>
     <a href="#" class="clearcachebutton btn icon-loop2 marg-r5" title="Clear Cache"></a>
@@ -41,10 +98,6 @@
       {% endif %}
     </ul>
     <ul class="nav">
-
-<!--     {% for object in s3_bucket_objects %}
-      <li><a href="#" data-url="{{ object['Key'] }}" class="post">{{ object['PrettyKey'] }}</a></li>
-    {% endfor %} -->
 
     {% for page in pages %}
       <li><a href="#" data-url="{{ page.id }}" class="post"><span class="icon-file-text2 marg-r5" aria-hidden="true"></span>/{{ page.id }}</a>
@@ -130,7 +183,6 @@
 
         var fileUrl = $(this).attr('data-url');
         $.post( '{{ pico_edit_url }}/open', { file: fileUrl }, function(data){
-          console.log(data)
           $('#epiceditor').data('currentFile', fileUrl);
           editor.importFile('epiceditor', data);
           unsaved = false;
@@ -199,6 +251,61 @@
         });
       });
 
+      $('#helper-toggle').on('click', function(e){
+        $('#helper').toggleClass('open');
+      });
+
+      $('#helper form button').prop('disabled', true);
+
+      $('#uploadedfile').on('change', function(e){
+        $('.error').hide();
+        $('.upload-success').hide();
+        $('#helper form button').prop('disabled', !$(this).val());
+      });
+
+      // upload file to s3 and insert reference img html
+      $('#uploadimage').on('click', function(e) {
+        e.preventDefault();
+        var data = new FormData();
+        var file = $('#uploadedfile')[0].files[0];
+        var validTypes = ['image/gif', 'image/jpeg', 'image/png'];
+        if ($.inArray(file['type'], validTypes) < 0) {
+          return $('.invalid-image-type').show();
+        }
+
+        data.append('uploadedfile', file);
+
+        var text = $(this).text();
+        var $button = $(this);
+        $button.text('Uploading...');
+
+        $.ajax('{{ pico_edit_url }}/upload', {
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            dataType: 'json',
+            success: function(res){
+              console.log('result', res);
+              if(res.url){
+                $button.text(text);
+                var $input = $('<input type="text">');
+                var path = '<img src="' + res.url + '"/>';
+                $input.val(path);
+                $('.upload-success').show().after($input);
+                $input.select();
+              } else {
+                $('.upload-error').show();
+              }
+            },
+            error: function(res){
+              console.log('error!', res);
+              $button.text(text);
+              $('.upload-error').show();
+            }
+        });
+      });
+
       // btn - Commit
       $('.controls').on('click', '.commitbutton', function(e) {
         e.preventDefault();
@@ -249,14 +356,14 @@
       $(document).unbind('keyup.popup');
     }
 
-    $.getJSON("{{ pico_edit_url }}/git", function(data) {
+    // $.getJSON("{{ pico_edit_url }}/git", function(data) {
       // if(data.have_repo) {
       //   $('.commitbutton').show();
       // }
       // if(data.remotes.length) {
       //   $('.pushpullbutton').show();
       // }
-    });
+    // });
     </script>
   </div>
 </body>
