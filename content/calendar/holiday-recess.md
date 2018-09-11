@@ -1,7 +1,7 @@
 ---
 Title: Holiday Recess
 Author: Primoris Admin
-Date: 21 December 2017
+Date: 21 December 2018
 event_detail: No school December 21st — January 2nd
 ---
 

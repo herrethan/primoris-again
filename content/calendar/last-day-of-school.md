@@ -1,7 +1,7 @@
 ---
 Title: Last day of school
 Author: Primoris Admin
-Date: 11 June 2018
+Date: 7 June 2019
 ---
 
-The last day will be a HALF DAY and there will be NO AFTERCARE. Happy summer!
+Last day for students. Happy summer!
