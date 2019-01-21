@@ -34,11 +34,8 @@ head: PROGRAMS
 (No testing required)
 <div class="row">
   <div class="column medium-6">
-    <h3>ENRICHMENT PROGRAM: FALL & SPRING</h3>
-    <p>Please check back in late August-early September for Fall 2018 offerings.</p>
-  </div>
-  <div class="column medium-6">
     <h3>SUMMER PROGRAM</h3>
+    <p>Summer 2019 information coming soon!</p>
     <p>See our Summer 2018 brochure <a href="%theme_url%/img/SummerProgram2018.pdf" target="_blank">here</a>.</p>
   </div>
 </div>
@@ -49,10 +46,10 @@ head: PROGRAMS
 <div class="row">
   <div class="column medium-6">
     <h3>SOLVED BY GIRLS CONFERENCE</h3>
-    <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for girls. The conference offers third to eighth graders the opportunity to participate in a team olympiad of STEM challenges, meet other likeminded girls, and hear from inspiring guest speakers. SBG aims to encourage young girls' interest in STEM studies and professions. If you would like to be alerted when registration opens for the next conference, <a href="/contact">let us know</a>!</p>
+    <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for girls. The conference offers third to eighth graders the opportunity to participate in a team olympiad of STEM challenges, meet other like-minded girls, and hear from inspiring guest speakers. SBG aims to encourage young girls' interest in STEM studies and professions. 
+    <p> Registration is open for our 2019 SBG Conference! If you would like to receive more information about how to register your school, <a href="/contact">let us know</a>!</p>
   </div>
   <div class="column medium-6">
     <img src="%theme_url%/img/solved-by-girls.jpg">
   </div>
 </div>
-
