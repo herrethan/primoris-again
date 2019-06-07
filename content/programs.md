@@ -35,9 +35,8 @@ head: PROGRAMS
 <div class="row">
   <div class="column medium-6">
     <h3>SUMMER PROGRAM</h3>
-    <p>Summer 2019 information is now available</p>
+    <p>Summer 2019 registration is now closed. Please email summer@primorisacademy.org to find out how you can be the first to find out about next year's Summer Program!</p>
     <p>See our Summer 2019 brochure and registration <a href="%theme_url%/img/PrimorisSummerProgram2019.pdf" target="_blank">here</a>.</p>
-    <p> Spots are filling up and certain Sessions are now closed. Please email summer@primorisacademy.org to check availability. Registration will close on June 1st.</p> 
   </div>
 </div>
  
