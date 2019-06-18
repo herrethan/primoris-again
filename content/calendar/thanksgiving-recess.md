@@ -1,9 +1,9 @@
 ---
 Title: Thanksgiving Recess
 Author: Primoris Admin
-Date: 19 November 2018
-event_detail: Nov 19th - 23rd
+Date: 25 November 2019
+event_detail: Nov 25th - 29th
 ---
 
-No school, enjoy the break!
+No school, enjoy the break! See you back in School on December 2nd!
 

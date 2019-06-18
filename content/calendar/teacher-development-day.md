@@ -1,9 +1,9 @@
 ---
 Title: Teacher Development Day
 Author: Primoris Admin
-Date: 21 September 2018
+Date: 30 September 2019
 event_detail: All day
 ---
 
-Teacher development day &mdash; no school for students!
+Teacher development day — no school for students!
 

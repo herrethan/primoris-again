@@ -1,7 +1,8 @@
 ---
 Title: First Day of School
 Author: Primoris Admin
-Date: 6 September 2018
+Date: 5 September 2019
 ---
 
-Welcome to the 2018-2019 school year!
+Welcome to the 2019-2020 school year!
+Please have your child wear their formal uniform.

@@ -1,7 +1,7 @@
 ---
-Title: Winter Concert
+Title: Music Showcase
 Author: Primoris Admin
-Date: 7 December 2018
+Date: 5 December 2019
 event_detail: 6:00 PM
 ---
 
