@@ -35,7 +35,7 @@ head: PROGRAMS
 <div class="row">
   <div class="column medium-6">
     <h3>SUMMER PROGRAM</h3>
-    <p>Summer 2019 registration is now closed. Please email summer@primorisacademy.org to find out how you can be the first to find out about next year's Summer Program!</p>
+    <p>Summer 2020 information will be released soon! Please email summer@primorisacademy.org to find out how you can be the first to find out about this year's Summer Program!</p>
     <p>See our Summer 2019 brochure and registration <a href="%theme_url%/img/PrimorisSummerProgram2019.pdf" target="_blank">here</a>.</p>
   </div>
 </div>
@@ -47,7 +47,7 @@ head: PROGRAMS
   <div class="column medium-6">
     <h3>SOLVED BY GIRLS CONFERENCE</h3>
     <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for girls. The conference offers third to eighth graders the opportunity to participate in a team olympiad of STEM challenges, meet other like-minded girls, and hear from inspiring guest speakers. SBG aims to encourage young girls' interest in STEM studies and professions.
-    <p> We had a blast at our 2019 Sovled by Girls Conference! If you would like to learn about how to receive information for next years event, <a href="/contact">let us know</a>!</p>
+    <p> The 2020 Sovled by Girls Conference is coming up and information will be released soon! If you would like to learn about how to receive information for this years event, <a href="/contact">let us know</a>!</p>
   </div>
   <div class="column medium-6">
     <img src="%theme_url%/img/solved-by-girls.jpg">

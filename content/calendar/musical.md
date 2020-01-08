@@ -1,7 +1,7 @@
 ---
-Title: Annie Jr. the Musical
+Title: Winnie the Pooh KIDS the Musical
 Author: Primoris Admin
-Date: 16 November 2018
+Date: 6 December 2019
 event_detail: 6:30 pm
 ---
 
