@@ -405,7 +405,7 @@ class P01contactForm
         $success = $mail_gun->sendMessage("$domain",
           array('from'    => $this->encodeHeader($name) . " <$email>",
                 'to'      => $targets,
-                'subject' => 'New Inquiry via primorisacadamy.org',
+                'subject' => 'New Inquiry via primorisacademy.org',
                 'text'    => $this->mailContent($text, 'plain', $mime_boundary),
                 'html'    => $html));
 
