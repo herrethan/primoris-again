@@ -23,10 +23,12 @@ Shadow days during the school year can be scheduled from October- May, pending s
 - IQ Test (for ages 5 and older)
 - School Transcripts
 - Two Teacher Recommendations
+
 Teachers should email their recommendations to [admissions@primorisacademy.org](mailto:admissions@primorisacademy.org) from their school email accounts. Recommendations sent from personal accounts will not be accepted.
 <p style="margin-top:40px;margin-bottom:40px">
 <a class="submit-button" target="_blank" href="%theme_url%/img/RecommendationFormElementary.pdf">ELEMENTARY SCHOOL</a>
 <a class="submit-button" target="_blank" href="%theme_url%/img/RecommendationFormMiddleAndHigh.pdf">MIDDLE/HIGH SCHOOL</a>
 </p>
+
 ###UPON RECEIPT OF ALL MATERIALS
 The Admissions Committee will carefully review all application materials and mail home a decision letter. If you have any questions or concerns, please be sure to address them before the shadow days. We do not discuss any details of the process or outcome. All admissions decisions are final.

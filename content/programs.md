@@ -5,7 +5,7 @@ Date: 5 December 2017
 nav_name: programs
 head: PROGRAMS
 ---
- 
+
 #School Programs
 <div class="row">
   <div class="column medium-4">
@@ -27,27 +27,25 @@ head: PROGRAMS
     <a href="/programs/high-school">Learn More →</a>
   </div>
 </div>
- 
+
 ---
- 
+
 #Programs Open to the Public
 (No testing required)
 <div class="row">
   <div class="column medium-6">
     <h3>SUMMER PROGRAM</h3>
-    <p>Summer 2020 information will be released soon! Please email summer@primorisacademy.org to find out how you can be the first to find out about this year's Summer Program!</p>
-    <p>See our Summer 2019 brochure and registration <a href="%theme_url%/img/PrimorisSummerProgram2019.pdf" target="_blank">here</a>.</p>
+    <p>Due to COVID-19, our summer program will be moved online for ages 7-12. Please email <a href="mailto:summer@primorisacademy.org">summer@primorisacademy.org</a> for more information.</p>
   </div>
 </div>
- 
+
 ---
- 
+
 #Community Events
 <div class="row">
   <div class="column medium-6">
     <h3>SOLVED BY GIRLS CONFERENCE</h3>
-    <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for girls. The conference offers third to eighth graders the opportunity to participate in a team olympiad of STEM challenges, meet other like-minded girls, and hear from inspiring guest speakers. SBG aims to encourage young girls' interest in STEM studies and professions.
-    <p> The 2020 Sovled by Girls Conference is coming up and information will be released soon! If you would like to learn about how to receive information for this years event, <a href="/contact">let us know</a>!</p>
+    <p>Solved by Girls, established in 2017, is New Jersey's first-ever STEM conference for upper elementary (grades 3-5) and middle school (grades 6-8) girls. The conference offers third to eighth graders the opportunity to participate in a team Olympiad of STEM challenges, meet other like-minded girls, and hear from inspiring guest speakers. SBG aims to encourage young girls' interest in STEM studies and professions.
   </div>
   <div class="column medium-6">
     <img src="%theme_url%/img/solved-by-girls.jpg">
